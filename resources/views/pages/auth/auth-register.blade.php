@@ -119,23 +119,6 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Roles</label>
-                            <div class="selectgroup w-100">
-                                <label class="selectgroup-item">
-                                    <input type="radio" name="roles" value="admin" class="selectgroup-input" checked="">
-                                    <span class="selectgroup-button">admin</span>
-                                </label>
-                                <label class="selectgroup-item">
-                                    <input type="radio" name="roles" value="staff" class="selectgroup-input">
-                                    <span class="selectgroup-button">staff</span>
-                                </label>
-                                <label class="selectgroup-item">
-                                    <input type="radio" name="roles" value="user" class="selectgroup-input">
-                                    <span class="selectgroup-button">user</span>
-                                </label>
-                            </div>
-                        </div>
                     <div class="form-group">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" name="agree" class="custom-control-input" id="agree">
