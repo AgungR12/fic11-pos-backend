@@ -60,4 +60,13 @@ VPS Setting
 4. Atur SSH dengan import ssh, apabila ingin melihat ssh dengan cara cat .ssh/id_rsa.pub
 5. Klik continue untuk melanjutkan pembelian
 6. Membuka server vps dengan git bash dan ketik ssh (username)@(public IP)
-7.
+7. Install mariadb
+8. Membuat database pada tableplus dengan ssh vps
+9. Install nginx
+10. Install php
+11. Install Composer
+12. Buka cd /var/www
+13. /var/www$ cd
+14. sudo ssh-keygen terus enter aja terus
+15. ketik sudo cat (copy public key)
+16. Menambahkan ssh untuk vps server ke github
