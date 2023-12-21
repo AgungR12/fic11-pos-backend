@@ -1,0 +1,63 @@
+A. Fortify To Auth Login And Register
+=> Seperti disebutkan sebelumnya, Laravel Fortify adalah implementasi backend otentikasi agnostik frontend untuk Laravel. Fortify mendaftarkan rute dan pengontrol yang diperlukan untuk mengimplementasikan semua fitur otentikasi Laravel,
+   termasuk login, registrasi, reset kata sandi, verifikasi email, dan banyak lagi.
+
+Installation To Fortify
+1. Instal fortify laravel dengan composer require laravel/fortify
+2. Publish fortify dengan php artisan vendor:publish --provider="Laravel\Fortify\FortifyServiceProvider"
+3. Tambhakan pada FortifyServiceProvider pada app.php dengan App\Provider\FortifyServiceProvider::class
+4. Migrate dengan php artisan migrate
+
+Login
+1. Tambahkan pada FortifyServiceProvider
+
+Fortify::loginView(function(){
+    return view('page.auth.login');
+});
+
+
+Register
+1. Tambahkan pada FortifyServiceProvider
+
+Fortify::registrasiView(function(){
+    return view('page.auth.login');
+});
+
+Optimize Caching
+php artisan optimize
+untuk menghapus cache pada laravel
+
+Cara menambahkan Product secara faker
+
+1. Membuat model product dengan cara php artisan make:model ProductModel -m (-m agar dibuatkan sekalian dengan migration nya)
+2. Edit migration product
+3. Membuat factory product dengan cara ctrl + p terus buat factory product
+4. Membuat seeder product dengan mengkaitkan factory product yang sudah dibuat dengan menambahkan jumlah faker
+5. Daftarkan seeder ke DatabaseSeeder pada productseeder
+6. Cara menambahkan product secara bersamaan dengan cara php artisan migrate:fresh --seed
+
+
+Laravel sanctum API
+1. install dengan cara composer require laravel/sanctum
+2. php artisan migrate
+3. php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+
+Login API
+1. Membuat controller authcontroller dengan cara php artisan make:controller /Api/AuthController --api
+2. Membuat function login
+3. Membuat route login API di api.php pada folder route
+4. Tes Login pada postman
+
+Product API
+1. Membuat controller productcontroller dengan cara php artisan make:controller /Api/AuthController --api
+2. Membuat route product API di api.php pada folder route
+3. Membuat function index untuk menampilkan product pada api
+
+VPS Setting
+1. Daftarkan biznet vps
+2. Pilih Compute Neo Lite
+3. Pilih Paket yang ingin dibeli
+4. Atur SSH dengan import ssh, apabila ingin melihat ssh dengan cara cat .ssh/id_rsa.pub
+5. Klik continue untuk melanjutkan pembelian
+6. Membuka server vps dengan git bash dan ketik ssh (username)@(public IP)
+7.
