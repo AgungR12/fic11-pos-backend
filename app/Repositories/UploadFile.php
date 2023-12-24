@@ -52,6 +52,7 @@ class UploadFile {
             $request->file('image')->storeAs('image', $image);
             $request['image'] = $image;
         }
+        return $image;
     }
 
     public function updateFotoAll($request)

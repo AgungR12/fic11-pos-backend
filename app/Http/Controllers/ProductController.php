@@ -47,10 +47,29 @@ class ProductController extends Controller
 
     public function update(Request $request, ProductModel $product )
     {
+        // Delete to image old
+        // if($product->image ){
+        //     unlink(public_path('images'. $product->image));
+        // }
+
+        // if($request->file('image')){
+            //     $extension = $request->file('image')->getClientOriginalExtension();
+            //     $image = $request->name.'-'.now()->timestamp.'.'.$extension;
+            //     $request->file('image')->storeAs('image', $image);
+            //     $request['image'] = $image;
+        // }
+
         $image = (new UploadFile())->updateImageAll($request);
         $data = $request->all();
         $product->update($data);
-        // dd($product);
+        $product->name = $request->input('name');
+        $product->price = $request->input('price');
+        $product->stock = $request->input('stock');
+        $product->category = $request->category;
+        $product->image = $image;
+        $product->description = $request->input('description');
+        $product->save();
+        // dd($image);
         toast('Product successfully updated', 'success')->position('top')->autoClose(5000);
         return redirect()->route('products.index');
         // dd($request->all());
