@@ -9,10 +9,14 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
     public function index()
     {
         $products = ProductModel::paginate(10);
-        return view('pages.products.index', ['products' => $products]);
+        $foods = ProductModel::where('category', 'food')->orderBy('id','desc')->paginate(10);
+        $drink = ProductModel::where('category', 'drink')->orderBy('id','desc')->paginate(10);
+        $snack = ProductModel::where('category', 'snack')->orderBy('id','desc')->paginate(10);
+        return view('pages.products.index', ['products' => $products, 'foods' => $foods, 'drink' => $drink, 'snack' => $snack]);
     }
 
     public function create()
@@ -75,9 +79,11 @@ class ProductController extends Controller
         // dd($request->all());
     }
 
-    public function destroy(ProductModel $product)
+    public function destroy(ProductModel $product, $id)
     {
         $product->delete();
+        // $products = ProductModel::findOrFail($id);
+        // $products->delete();
         // toast('Product successfully deleted', 'success')->position('top')->autoClose(5000);
         return redirect()->route('products.index');
     }

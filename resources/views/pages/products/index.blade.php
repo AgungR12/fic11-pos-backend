@@ -10,6 +10,7 @@
 {{-- <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
 <script>
     function change() {
+        var productId = $(this).attr('data-id');
         Swal.fire({
             title: 'Are you sure?',
             text: 'You won\'t be able to revert this!',
@@ -21,7 +22,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 // Submit the form when user confirms
-                window.location = "{{ route('products.destroy', $products) }}";
+                window.location = "/products/" + productId + "";
                 document.querySelector('form').submit();
             }
         });
@@ -91,10 +92,10 @@
                                         @foreach ($products as $product)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                @if ($product->image != '')
+                                                @if ($product->image)
                                                 <td class="text-capitalize pt-2"><img src="{{ asset('storage/image/'. $product->image ) }}" alt="" width="80" height="80"></td>
                                                 @else
-                                                <td class="text-capitalize pt-2"><img src="{{ asset('img/products/product-1.jpg') }}" alt="" width="80" height="80"></td>
+                                                <td class="text-capitalize pt-2"><img src="{{ asset('img/no-image.png') }}" alt="" width="80" height="80"></td>
                                                 @endif
                                                 <td class="text-capitalize">{{ $product->name }}</td>
                                                 <td class="text-capitalize">{{ $product->category }}</td>
@@ -109,7 +110,7 @@
                                                         <form action="{{ route('products.destroy', $product) }}" method="post" class="ml-2">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button class="btn btn-sm btn-danger btn-icon confirm-delete ml-2" id="deleteBtn" onclick="change()" data-id="{{ $product }}" data-name="{{ $product->name }}">
+                                                            <button class="btn btn-sm btn-danger btn-icon confirm-delete ml-2" id="deleteBtn" onclick="change()" data-id="{{ $product->id }}" data-name="{{ $product->name }}">
                                                                 <i class="fas fa-trash"></i>
                                                             </button>
                                                         </form>

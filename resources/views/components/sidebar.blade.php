@@ -30,6 +30,15 @@
                     <li>
                         <a class="nav-link" href="{{ route('products.index') }}">All Products</a>
                     </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('products.index') }}">Foods</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('products.index') }}">Drink</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('products.index') }}">Snack</a>
+                    </li>
                 </ul>
             </li>
             <li class="menu-header">Users</li>
