@@ -70,4 +70,4 @@ VPS Setting
 14. sudo ssh-keygen terus enter aja terus
 15. ketik sudo cat (copy public key)
 16. Menambahkan ssh untuk vps server ke github
-17. Pull ke vps server dengan /var/www/(nama file)/git pull -r (atau git pull slash)
+17. Pull ke vps server dengan /var/www/(nama file)/sudo git pull -r (atau git pull slash)
