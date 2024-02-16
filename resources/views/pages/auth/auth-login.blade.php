@@ -73,7 +73,7 @@
         </div>
     </div>
     <div class="text-muted mt-5 text-center">
-        Don't have an account? <a href="{{ route('register') }}">Create One</a>
+        Don't have an account? <a href="{{ route('register') }}">Registrasi</a>
     </div>
 @endsection
 
