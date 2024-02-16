@@ -26,7 +26,7 @@
                     </div>
                     @enderror
                 </div>
-                <div class="form-group"> c
+                <div class="form-group">
                     <div class="d-block">
                         <label for="password" class="control-label">Password</label>
                         <div class="float-right">
