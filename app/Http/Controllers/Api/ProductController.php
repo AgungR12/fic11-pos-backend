@@ -62,9 +62,14 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $product = ProductModel::where('id', $id)->first();
+        return response()->json([
+            'success' => true,
+            'message' => 'Product Show',
+            'data' => $product
+        ], 201);
     }
 
     /**

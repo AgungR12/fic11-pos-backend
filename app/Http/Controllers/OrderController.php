@@ -21,7 +21,6 @@ class OrderController extends Controller
     public function show($id)
     {
         $order = Order::with('kasir')->findOrFail($id);
-
         // get order items by order id
         $orderItems = OrderItem::with('product')->where('order_id', $id)->get();
 

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 255);
             $table->string('description', 255)->nullable();
-            $table->integer('price')->default(0);
+            $table->string('price', 100);
             $table->integer('stock')->default(0);
             $table->enum('category', ['food', 'drink', 'snack']);
             $table->string('image', 255)->nullable();

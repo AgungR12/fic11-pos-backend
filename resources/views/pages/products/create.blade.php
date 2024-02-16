@@ -46,7 +46,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-2 pb-2">
-                                    <img class="rounded img-preview" src="{{ asset('img/products/product-1.jpg') }}" alt="" width="150" height="150">
+                                    <img class="rounded img-preview" src="{{ asset('img/no-image.png') }}" alt="" width="150" height="150">
                                 </div>
                             </div>
                             <div class="row">

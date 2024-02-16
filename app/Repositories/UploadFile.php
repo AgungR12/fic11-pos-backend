@@ -32,6 +32,32 @@ class UploadFile {
         return $newName;
     }
 
+    public function uploadImageCustomer($request)
+    {
+        $newName = '';
+        if($request->file('image')){
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $newName = $request->input('name_customer').'-'.now()->timestamp.'.'.$extension;
+            $request->file('image')->storeAs('photo', $newName);
+        }
+        $request['image'] = $newName;
+
+        return $newName;
+    }
+
+    public function uploadImageEmployee($request)
+    {
+        $newName = '';
+        if($request->file('image')){
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $newName = $request->input('name').'-'.now()->timestamp.'.'.$extension;
+            $request->file('image')->storeAs('photo', $newName);
+        }
+        $request['image'] = $newName;
+
+        return $newName;
+    }
+
     public function updateImage($request)
     {
         if($request->file('image')){
@@ -46,12 +72,23 @@ class UploadFile {
 
     public function updateImageAll($request)
     {
-        if($request->file('image')){
+        // if($request->file('image')){
             $extension = $request->file('image')->getClientOriginalExtension();
             $image = $request->name.'-'.now()->timestamp.'.'.$extension;
             $request->file('image')->storeAs('image', $image);
             $request['image'] = $image;
-        }
+        // }
+        return $image;
+    }
+
+    public function updateImageCustomer($request)
+    {
+        // if($request->file('image')){
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $image = $request->name.'-'.now()->timestamp.'.'.$extension;
+            $request->file('image')->storeAs('photo', $image);
+            $request['image'] = $image;
+        // }
         return $image;
     }
 

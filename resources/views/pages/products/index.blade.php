@@ -59,14 +59,14 @@
                                 <h4>All Products</h4>
                             </div>
                             <div class="card-body">
-                                <div class="float-left">
+                                {{-- <div class="float-left">
                                     <select class="form-control selectric">
                                         <option>Action For Selected</option>
                                         <option>Move to Draft</option>
                                         <option>Move to Pending</option>
                                         <option>Delete Pemanently</option>
                                     </select>
-                                </div>
+                                </div> --}}
                                 <div class="float-right">
                                     <form action="{{ route('products.index') }}" method="get">
                                         <div class="input-group">
@@ -84,7 +84,7 @@
                                             <th>No.</th>
                                             <th>Image</th>
                                             <th>Name</th>
-                                            <th>Category</th>
+                                            <th>Deskripsi</th>
                                             <th>Stock</th>
                                             <th>Price</th>
                                             <th>Action</th>
@@ -97,17 +97,17 @@
                                                 @else
                                                 <td class="text-capitalize pt-2"><img src="{{ asset('img/no-image.png') }}" alt="" width="80" height="80"></td>
                                                 @endif
-                                                <td class="text-capitalize">{{ $product->name }}</td>
-                                                <td class="text-capitalize">{{ $product->category }}</td>
-                                                <td class="text-capitalize">{{ $product->stock }}</td>
-                                                <td>Rp. {{ $product->price }}</td>
+                                                <td class="text-capitalize pt-2 pb-2">{{ $product->name }}</td>
+                                                <td class="text-capitalize pt-2 pb-2">{{ $product->description }}</td>
+                                                <td class="text-capitalize pt-2 pb-2">{{ $product->stock }}</td>
+                                                <td class="pt-2 pb-2">Rp. {{ $product->price }}</td>
                                                 <td>
                                                     <div class="d-flex justify-content-evenly">
-                                                        <a href="" class="btn btn-sm btn-warning btn-icon"><i class="fas fa-box-open"></i></a>
+                                                        <a href="{{ route('products.show', $product->id) }}" class="btn btn-sm btn-warning btn-icon"><i class="fas fa-box-open"></i></a>
                                                         <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-info btn-icon ml-2">
                                                             <i class="fas fa-edit"></i>
                                                         </a>
-                                                        <form action="{{ route('products.destroy', $product) }}" method="post" class="ml-2">
+                                                        <form action="{{ route('products.destroy', $product->id) }}" method="post">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button class="btn btn-sm btn-danger btn-icon confirm-delete ml-2" id="deleteBtn" onclick="change()" data-id="{{ $product->id }}" data-name="{{ $product->name }}">

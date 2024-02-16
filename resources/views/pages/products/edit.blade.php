@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Product Create')
+@section('title', 'Product Edit')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -27,7 +27,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Forms Create</h1>
+                <h1>Forms Edit</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="{{ route('home') }}">Dashboard</a></div>
                     <div class="breadcrumb-item"><a href="#">Forms</a></div>
@@ -50,15 +50,15 @@
                                     @if ($products->image != '')
                                         <img src="{{ asset('storage/image/' . $products->image ) }}" alt="" class="rounded img-preview" width="150" height="150">
                                     @else
-                                        <img class="rounded img-preview" src="{{ asset('img/products/product-1.jpg') }}" alt="" width="150" height="150">
+                                        <img class="rounded img-preview" src="{{ asset('img/no-image.png') }}" alt="" width="150" height="150">
                                     @endif
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-4 pb-4 pl-4 pt-2 d-block">
                                     <button type="button" class="btn btn-primary px-4">
-                                        <span class="text-capitalize">Pilih Gambar</span>
-                                        <input type="file" name="image" id="image" onchange="previewImage()" class="@error('image') is-invalid @enderror" value="{{ $products->image }}">
+                                        <span class="text-capitalize">Pilih Gambar </span>
+                                        <input type="file" name="image" id="image" onchange="previewImage()" class="@error('image') is-invalid @enderror" value="{{ old('image') }}">
                                     </button>
                                         @error('image')
                                             <div class="invalid-feedback">
